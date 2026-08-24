@@ -8,7 +8,9 @@ authors = [
 ]
 requires-python = ">=3.14"
 dependencies = [
+    "anthropic>=1.0.0",
     "google-cloud-monitoring>=2.31.0",
+    "python-dotenv>=1.2.3",
 ]
 
 [project.scripts]

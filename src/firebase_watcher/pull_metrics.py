@@ -43,26 +43,11 @@ def read_ops(hours=24, bucket_seconds=3600):
    return buckets
 
 
-result = read_ops(hours=24, bucket_seconds=3600)
+# result = read_ops(hours=24, bucket_seconds=3600)
 
-assert result is not None
-for op, points in sorted(result.items(), key=lambda kv: -sum(kv[1].values())):
-    print(f"\n{op}: {sum(points.values()):,} reads")
-    for ts, v in sorted(points.items()):
-        if v:
-            print(f"  {ts:%m-%d %H:%M}  {v:>6,}  {'!!' * min(40, v // 25)}")
-
-# series = client.list_time_series(request={
-#     "name": f"projects/{PROJECT_ID}",
-#     "filter": f'metric.type = "{METRIC}"',
-#     "interval": interval,
-#     "view": monitoring_v3.ListTimeSeriesRequest.TimeSeriesView.FULL,
-# })
-
-# for i, s in enumerate(series):
-#     total = sum(p.value.int64_value for p in s.points)
-#     print(f"[{i}] resource={s.resource.type}")
-#     print(f"    metric.labels   = {dict(s.metric.labels)}")
-#     print(f"    resource.labels = {dict(s.resource.labels)}")
-#     print(f"    points={len(s.points)}  total={total:,}")
-
+# assert result is not None
+# for op, points in sorted(result.items(), key=lambda kv: -sum(kv[1].values())):
+#     print(f"\n{op}: {sum(points.values()):,} reads")
+#     for ts, v in sorted(points.items()):
+#         if v:
+#             print(f"  {ts:%m-%d %H:%M}  {v:>6,}  {'!!' * min(40, v // 25)}")
