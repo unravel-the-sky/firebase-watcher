@@ -1,0 +1,35 @@
+[project]
+name = "firebase-watcher"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "unravel-the-sky", email = "sekdemir@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "google-cloud-monitoring>=2.31.0",
+]
+
+[project.scripts]
+firebase-watcher = "firebase_watcher:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.411",
+    "ruff>=0.16.4",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]  # errors, pyflakes, import sort, upgrades, bugbear
+
+[tool.pyright]
+include = ["src"]
+typeCheckingMode = "standard"
